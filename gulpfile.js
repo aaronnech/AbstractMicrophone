@@ -31,7 +31,7 @@ gulp.task('bundleClient', ['compileTS', 'move'], function() {
 	 .pipe(gulp.dest('./bin/client/static/js'));
 });
 
-gulp.task('move', ['move-component', 'move-statics']);
+gulp.task('move', ['move-component', 'move-statics', 'move-vendor', 'move-worker']);
 
 gulp.task('move-component', function(cb) {
     // move components
@@ -42,6 +42,22 @@ gulp.task('move-component', function(cb) {
         cb();
     });
 });
+
+gulp.task('move-worker', function() {
+	var vendors = gulp
+				.src('src/vendor/static/*Worker.js');
+
+	return vendors.pipe(gulp.dest('./bin/client/static/js/vendor'));
+});
+
+
+gulp.task('move-vendor', function() {
+	var vendors = gulp
+				.src('src/vendor/**/*');
+
+	return vendors.pipe(gulp.dest('./bin/vendor'));
+});
+
 
 gulp.task('move-statics', function() {
 	var vendors = gulp

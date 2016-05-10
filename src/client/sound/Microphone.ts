@@ -1,10 +1,10 @@
 import AudioStorageConsumer = require('./AudioStorageConsumer');
+var AudioRecorder = require('../../vendor/audioRecorder.js');
 
 // Vanilla javascript / audio api declarations for typescript
 declare var AudioContext : any;
 declare var window : any;
 declare var navigator : any;
-declare var AudioRecorder : any;
 
 // Deal with prefixed APIs
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
