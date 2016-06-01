@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "express" : "latest",
+    "jquery" : "latest",
     "gulp" : "latest",
     "gulp-typescript" : "latest",
     "browserify" : "latest",

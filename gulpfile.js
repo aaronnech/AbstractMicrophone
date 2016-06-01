@@ -45,7 +45,7 @@ gulp.task('move-component', function(cb) {
 
 gulp.task('move-worker', function() {
 	var vendors = gulp
-				.src('src/vendor/static/*Worker.js');
+				.src('./bin/vendor/*Worker.js');
 
 	return vendors.pipe(gulp.dest('./bin/client/static/js/vendor'));
 });

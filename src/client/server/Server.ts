@@ -1,4 +1,5 @@
 /// <reference path="../../common/def/jquery.d.ts" />
+var JQuery = require('jquery');
 declare var Hashids: any;
 
 /**
@@ -48,7 +49,8 @@ class Server {
      * @param {string} word The word they are saying
      */
     public sendRecording(rawData: any): void {
-        if (rawData.length > 18 || rawData.length == 0) return;
+        // console.log(rawData.length);
+        // if (rawData.length > 18 || rawData.length == 0) return;
 
         var dataStr = "[";
         for (var i: number = 0; i < rawData.length; i++) {
@@ -67,7 +69,7 @@ class Server {
         }
         dataStr = dataStr.substr(0, dataStr.length - 1) + "]";
 
-        (<any>$).post(Server.URL + 'recording/add', {
+        (<any>JQuery).post(Server.URL + 'recording/add', {
             token: this.key,
             raw: dataStr
         }, function(data) {
